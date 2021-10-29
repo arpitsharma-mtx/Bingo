@@ -1,0 +1,328 @@
+<html>
+
+<head>
+    <style>
+           body {
+        font-family: "Montserrat";
+        box-sizing: border-box;
+        background: #2a2724;
+        color: #cf6a32;
+        user-select: none;
+        background-color: #f9fafe;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewBox='0 0 40 40'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%23376dc8' fill-opacity='0.1'%3E%3Cpath d='M0 38.59l2.83-2.83 1.41 1.41L1.41 40H0v-1.41zM0 1.4l2.83 2.83 1.41-1.41L1.41 0H0v1.41zM38.59 40l-2.83-2.83 1.41-1.41L40 38.59V40h-1.41zM40 1.41l-2.83 2.83-1.41-1.41L38.59 0H40v1.41zM20 18.6l2.83-2.83 1.41 1.41L21.41 20l2.83 2.83-1.41 1.41L20 21.41l-2.83 2.83-1.41-1.41L18.59 20l-2.83-2.83 1.41-1.41L20 18.59z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .flex-d {
+        display: flex;
+    }
+
+
+
+    *,
+    *::before,
+    *::after {
+        box-sizing: inherit;
+    }
+
+    main {
+        width: 33rem;
+        margin: 10px auto;
+        border: 3px solid #376dc8;
+        border-radius: 15px;
+        background: transparent;
+    }
+
+    img {
+        margin-top: 50px;
+    }
+
+    h1 {
+        padding-top: 1rem;
+        color: #376dc8;
+        font-size: 2rem;
+        text-align: center;
+    }
+
+    h1 span {
+        display: inline-block;
+        width: 5.7rem;
+        height: 5.7rem;
+        font-size: 2.7em;
+    }
+
+    .grid {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        width: 30rem;
+        height: 30rem;
+        margin: 0 auto;
+    }
+
+    label {
+        display: block;
+        width: 5.7rem;
+        height: 5.7rem;
+        border-radius: 15px;
+    }
+
+    label input {
+        display: none;
+    }
+
+    label input:checked+.mark {
+        cursor: pointer;
+        background: #376dc8;
+        color: #ffffff;
+    }
+
+    label .mark {
+        padding: 5px;
+        cursor: pointer;
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 5.34rem;
+        height: 5.34rem;
+        padding: 0.2rem;
+        border-radius: 4px;
+        background: #ffffff;
+        color: #376dc8;
+        border: 2px solid #376dc8;
+        font-size: 0.7em;
+        text-align: center;
+    }
+
+    small {
+        display: block;
+        padding: 1em;
+        text-align: center;
+    }
+
+        #wordbox {
+            /*opacity: 0;*/
+            margin: 30px auto 0;
+            display: block;
+            width: 300px;
+            height: 40px;
+            font-size: 30px;
+            text-align: center;
+            background: #fff;
+            border-radius: 6px;
+            color: black;
+            transition: 1s linear;
+        }
+
+        #button {
+            background: #0b7fba;
+            border: 0;
+            color: #fff;
+            font-size: 20px;
+            padding: 1em 2em;
+            cursor: pointer;
+            margin: 0 auto 60px;
+            display: block;
+            text-align: center;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="flex-d">
+        <div style="width: 100%; display: flex;align-items: center;">
+            <img src="Vector.svg" height="100px" style="margin-left: auto;margin-right: auto;margin-top: 0px;" />
+        </div>
+    </div>
+    <div class="flex-d">
+        <div style="width: 25%;">
+            <img src="left-side image.svg" height="80%" width="100%" />
+        </div>
+        <div style="flex-grow: 1;">
+            <h1>What's the next word?</h1>
+
+            <FORM NAME="WordForm">
+                <INPUT TYPE=TEXT NAME="WordBox" id="wordbox"><BR>
+                <INPUT TYPE=BUTTON VALUE="Generate" onClick="PickRandomWord(document.WordForm);" id="button">
+            </FORM>
+        </div>
+        <div style="width: 25%;">
+            <img src="Right-side image.svg" width="100%" height="80%" />
+        </div>
+    </div>
+</body>
+<script>
+    var NumberOfWords = 28
+
+    var words = [
+        "recreation",
+        "humor",
+        "merriment",
+        "play",
+        "sport",
+        "entertaining",
+        "humour",
+        "diversion",
+        "playfulness",
+        "laugh",
+        "kids",
+        "playful",
+        "love",
+        "stuff",
+        "boring",
+        "enjoyment",
+        "clowning",
+        "mind",
+        "funnest",
+        "fun",
+        "awesome",
+        "frivolity",
+        "enjoy",
+        "activity",
+        "socializing",
+        "loved",
+        "cute",
+        "rewarding",
+        "hilarious",
+        "pleasant",
+        "joke",
+        "thrills",
+        "relaxing",
+        "joyful",
+        "yummy",
+        "sociable",
+        "delightful",
+        "great",
+        "addicting",
+        "lovely",
+        "funny",
+        "adrenaline rush",
+        "funnier",
+        "rocking",
+        "wonderful",
+        "delicious",
+        "crazy",
+        "psyched",
+        "humorous",
+        "nice",
+        "worthwhile",
+        "goofing",
+        "neat",
+        "kickball",
+        "exciting",
+        "beautiful",
+        "frolic",
+        "silly",
+        "fantastic",
+        "weird",
+        "fabulous",
+        "goofy",
+        "cookouts",
+        "scary",
+        "laughs",
+        "time",
+        "loves",
+        "interesting",
+        "leisure",
+        "serious",
+        "comedy",
+        "pun",
+        "punning",
+        "wordplay",
+        "archness",
+        "wit",
+        "sober",
+        "entertainment",
+        "good",
+        "opinions",
+        "imagine",
+        "terrific",
+        "friskiness",
+        "sportiveness",
+        "waggishness",
+        "funniness",
+        "waggery",
+        "wittiness",
+        "mischievousness",
+        "puckishness",
+        "sauciness",
+        "happy",
+        "pretty",
+        "amazing",
+        "things",
+        "everybody",
+        "kind",
+        "doing",
+        "watching",
+        "talking",
+        "everyone",
+        "always",
+        "luck",
+        "everything",
+        "plenty",
+        "folks",
+        "little",
+        "thinking",
+        "definitely",
+        "think",
+        "guess",
+        "easy",
+        "fancy",
+        "anything",
+        "remember",
+        "wonder",
+        "going",
+        "just",
+        "quite",
+        "talk",
+        "nothing",
+        "perfect",
+        "best",
+        "stupid",
+        "jokes",
+        "every",
+        "smart",
+        "sense of humor",
+        "adventure",
+        "joy",
+        "kiddies",
+        "kinda",
+        "playtime",
+        "park",
+        "hoot",
+        "replay",
+        "competitiveness",
+        "pastime",
+        "disport",
+        "dopamine",
+        "excitement",
+        "playroom",
+        "picnics",
+        "game",
+        "playable",
+        "unplayable",
+        "recreational",
+        "plaything",
+        "playmate",
+        "amusing",
+        "diverting",
+        "craziness",
+        "silliness",
+    ];
+
+    temp = []
+
+    function PickRandomWord(frm) {
+        // Generate a random number between 1 and NumberOfWords
+        var rnd = Math.ceil(Math.random() * words.length)
+        // Display the word inside the text box
+        frm.WordBox.value = words[rnd]
+        temp.push(words[rnd])
+        words.splice(rnd, 1);
+        console.log(words.length)
+    }
+</script>
+
+</html>
